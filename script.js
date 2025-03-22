@@ -221,3 +221,13 @@ function lucky_numbers(arr) {
     }
     return arr.reduce(addNum,"Your lucky numbers are: ");
 }
+
+function shift_right(arr) {
+    function shift(c,elem) {
+        if (arr.indexOf(elem)!=arr.length-1) {
+            return c.concat(elem);
+        } else {return c;}
+    }
+    return arr.reduce(shift,[arr[arr.length-1]]);
+}
+
