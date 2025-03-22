@@ -109,3 +109,115 @@ function sameEnds(str) {
     }
     return final
 }
+
+/*
+
+
+
+
+
+
+
+*/
+
+function all_even(arr) {
+    function evenCheck(num) {
+        return num%2==0;
+    }
+    return arr.filter(evenCheck);
+}
+
+function no_space(arr) {
+    function checkSpace(str) {
+        return !str.includes(" ")
+    }
+    return arr.filter(checkSpace)
+}
+
+function all_positive(arr) {
+    function evenCheck(s) {
+        return s.length==all_even(s).length;
+    }
+    return arr.filter(evenCheck);
+}
+
+function same_vowels(arr) {
+    function allSame(str) {
+        let obj={};
+        for(let i=0; i<str.length; i++) {
+            let c=str[i];
+            if (c=="a"||c=="e"||c=="i"||c=="o"||c=="u") {
+                obj[str[i]]=1;
+            }
+        }
+    return Object.keys(obj).length==1;
+    }
+    return arr.filter(allSame);
+}
+
+function times_ten (arr) {
+    function x10(num) {
+        return num*10;
+    }
+    return arr.map(x10);
+}
+
+function types (arr) {
+    function returnType(elem) {
+        return typeof elem;
+    }
+    return arr.map(returnType);
+}
+
+function no_vowels(arr) {
+    function removeConsonants(str) {
+        let final="";
+        for(let i=0; i<str.length; i++) {
+            let c=str[i]
+            if (c=="a"||c=="e"||c=="i"||c=="o"||c=="u") {
+                final+=str[i];
+            }
+        }
+        return final;
+    }
+    return arr.map(removeConsonants);
+}
+
+function double_matrix(arr2d) {
+    function doubleElems(arr) {
+        function double (n) {return 2*n}
+        return arr.map(double);
+    }
+    return arr2d.map(doubleElems);
+}
+
+function sum_nums(arr) {
+    function sum(s,n) {
+        return s+n;
+    }
+    return arr.reduce(sum);
+}
+
+function product_matrix(arr2d) {
+    function arrProd(c,arr) {
+        function prod(p,n) {
+            return p*n;
+        }
+        return c*arr.reduce(prod);
+    }
+
+    return arr2d.reduce(arrProd,1);
+}
+
+function average(arr) {
+    return sum_nums(arr)/arr.length;
+}
+
+function lucky_numbers(arr) {
+    function addNum(str,num) {
+        if(arr.indexOf(num)==arr.length-1) {
+            return str+"and "+num;
+        } else {return str+num+", ";}
+    }
+    return arr.reduce(addNum,"Your lucky numbers are: ");
+}
