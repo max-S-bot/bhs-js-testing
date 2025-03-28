@@ -121,28 +121,19 @@ function sameEnds(str) {
 */
 
 function all_even(arr) {
-    function evenCheck(num) {
-        return num%2==0;
-    }
-    return arr.filter(evenCheck);
+    return arr.filter((num)=>{return num%2==0;});
 }
 
 function no_space(arr) {
-    function checkSpace(str) {
-        return !str.includes(" ")
-    }
-    return arr.filter(checkSpace)
+    return arr.filter((str)=>{return !str.includes(" ");})
 }
 
 function all_positive(arr) {
-    function evenCheck(s) {
-        return s.length==all_even(s).length;
-    }
-    return arr.filter(evenCheck);
+    return arr.filter((s)=>{return s.length==all_even(s).length;});
 }
 
 function same_vowels(arr) {
-    function allSame(str) {
+    return arr.filter((str)=>{
         let obj={};
         for(let i=0; i<str.length; i++) {
             let c=str[i];
@@ -150,27 +141,23 @@ function same_vowels(arr) {
                 obj[str[i]]=1;
             }
         }
-    return Object.keys(obj).length==1;
-    }
-    return arr.filter(allSame);
+        return Object.keys(obj).length==1;
+    });
 }
 
+
 function times_ten (arr) {
-    function x10(num) {
-        return num*10;
-    }
-    return arr.map(x10);
+    return arr.map(    
+        (num) => { return num*10; }
+    );
 }
 
 function types (arr) {
-    function returnType(elem) {
-        return typeof elem;
-    }
-    return arr.map(returnType);
+    return arr.map((elem)=>{return typeof elem;});
 }
 
 function no_vowels(arr) {
-    function removeConsonants(str) {
+    return arr.map((str)=>{
         let final="";
         for(let i=0; i<str.length; i++) {
             let c=str[i]
@@ -179,34 +166,24 @@ function no_vowels(arr) {
             }
         }
         return final;
-    }
-    return arr.map(removeConsonants);
+    });
 }
 
 function double_matrix(arr2d) {
-    function doubleElems(arr) {
-        function double (n) {return 2*n}
-        return arr.map(double);
-    }
-    return arr2d.map(doubleElems);
+    return arr2d.map((arr)=>{
+        return arr.map((n)=>{return 2*n});
+    });
 }
 
 function sum_nums(arr) {
-    function sum(s,n) {
-        return s+n;
-    }
-    return arr.reduce(sum);
+    return arr.reduce((s,n)=>{return s+n;});
 }
 
 function product_matrix(arr2d) {
-    function arrProd(c,arr) {
-        function prod(p,n) {
-            return p*n;
-        }
-        return c*arr.reduce(prod);
-    }
-
-    return arr2d.reduce(arrProd,1);
+    return arr2d.reduce((c,arr)=>{
+        return c*arr.reduce((p,n)=>{return p*n;});
+    },
+    1);
 }
 
 function average(arr) {
@@ -214,20 +191,20 @@ function average(arr) {
 }
 
 function lucky_numbers(arr) {
-    function addNum(str,num) {
+    return arr.reduce((str,num)=>{
         if(arr.indexOf(num)==arr.length-1) {
             return str+"and "+num;
         } else {return str+num+", ";}
-    }
-    return arr.reduce(addNum,"Your lucky numbers are: ");
+    },
+    "Your lucky numbers are: ");
 }
 
 function shift_right(arr) {
-    function shift(c,elem) {
+    return arr.reduce((c,elem)=>{
         if (arr.indexOf(elem)!=arr.length-1) {
             return c.concat(elem);
         } else {return c;}
-    }
-    return arr.reduce(shift,[arr[arr.length-1]]);
+    },
+    [arr[arr.length-1]]);
 }
 
